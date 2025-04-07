@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Libran University Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background-color: black; color: white; display: flex; }
+    .sidebar { width: 220px; height: 100vh; background-color: #0097a7; overflow-y: auto; padding-top: 20px; }
+    .sidebar h2 { color: white; padding: 15px 20px; margin-top: 0; border-bottom: 1px solid #007d8a; }
+    .sidebar a { display: block; padding: 15px 20px; color: white; text-decoration: none; border-bottom: 1px solid #007d8a; }
+    .sidebar a:hover { background-color: #007d8a; }
+    .sidebar i { margin-right: 10px; }
+    .content { flex-grow: 1; padding: 20px; }
+    header { background-color: red; padding: 20px; text-align: center; margin-bottom: 20px; }
+    .search-box { margin-bottom: 20px; }
+    .search-box input { padding: 10px; width: 100%; font-size: 16px; border: 1px solid #333; background-color: #444; color: white; box-sizing: border-box; }
+    .container { padding: 20px; }
+    h2 { color: red; margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; }
+    input[type="text"], input[type="password"], input[type="email"], select, textarea { padding: 10px; margin-bottom: 10px; width: 300px; border: 1px solid #333; background-color: #444; color: white; box-sizing: border-box; }
+    button { padding: 10px 20px; background-color: red; color: white; border: none; cursor: pointer; font-size: 16px; border-radius: 5px; }
+    button:hover { background-color: #cc0000; }
+    ul { list-style: none; padding: 0; }
+    ul li { margin-bottom: 10px; }
+    ul li a { color: white; text-decoration: none; }
+    ul li a:hover { color: red; }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Menu</h2>
+    <a href="#home" style="background-color: red; font-weight: bold;"><i class="fas fa-home"></i> Home</a>
+    <a href="#login"><i class="fas fa-sign-in-alt"></i> Login/Register</a>
+    <a href="#academic"><i class="fas fa-book"></i> Academic</a>
+    <a href="#financial"><i class="fas fa-university"></i> Financial</a>
+    <a href="#housing"><i class="fas fa-home"></i> Housing</a>
+    <a href="#reporting"><i class="fas fa-calendar-check"></i> Reporting</a>
+  </div>
+  <div class="content">
+    <section id="home">
+      <header>
+        <h1>Libran University Student Portal</h1>
+        <img src="cover-image.jpg" alt="Libran University" style="width: 100%; max-height: 300px; object-fit: cover;">
+      </header>
+      <div class="search-box">
+        <input type="text" placeholder="Search the portal...">
+      </div>
+      <p>Welcome to the official student portal of Libran University! Access all essential student services and information through the menu on the left.</p>
+    </section>
+
+    <section id="login" class="container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <label for="loginName">Name:</label><br>
+        <input type="text" id="loginName" name="loginName" required><br><br>
+        <label for="loginPassword">Password (Registration Number):</label><br>
+        <input type="password" id="loginPassword" name="loginPassword" required><br><br>
+        <button type="submit">Login</button>
+      </form>
+
+      <h2>Registration</h2>
+      <form id="registrationForm">
+        <label for="regName">Full Name:</label><br>
+        <input type="text" id="regName" name="regName" required><br><br>
+        <label for="regNumber">Registration Number:</label><br>
+        <input type="text" id="regNumber" name="regNumber" required><br><br>
+        <label for="regEmail">Email:</label><br>
+        <input type="email" id="regEmail" name="regEmail" required><br><br>
+        <label for="regPassword">Password:</label><br>
+        <input type="password" id="regPassword" name="regPassword" required><br><br>
+        <button type="submit">Register</button>
+      </form>
+    </section>
+
+    <section id="academic" class="container">
+      <h2>Academic Information</h2>
+      <ul>
+        <li><a href="#">Unit Registration</a></li>
+        <li><a href="#">Transcript</a></li>
+        <li><a href="#">Student Progress</a></li>
+      </ul>
+    </section>
+
+    <section id="financial" class="container">
+      <h2>Financial Details</h2>
+      <p>Here you can manage your fee payments and view financial records.</p>
+      <h3>Fee Payment</h3>
+      <p>To make a fee payment, please follow the instructions below:</p>
+      <ol>
+        <li>Select the semester for payment.</li>
+        <li>Choose your preferred payment method.</li>
+        <li>Follow the on-screen prompts to complete the transaction.</li>
+      </ol>
+      <p><strong>Important:</strong> Please ensure all details are accurate before proceeding with payment.</p>
+      <h3>Payment History</h3>
+      <div>
+        <p><strong>Receipt Number:</strong> #LUBF2025-1001</p>
+        <p><strong>Date:</strong> 2025-03-15</p>
+        <p><strong>Amount Paid:</strong> KES XXXXX</p>
+      </div>
+      <div>
+        <p><strong>Receipt Number:</strong> #LUBF2024-0905</p>
+        <p><strong>Date:</strong> 2024-09-01</p>
+        <p><strong>Amount Paid:</strong> KES YYYYY</p>
+      </div>
+    </section>
+
+    <section id="housing" class="container">
+      <h2>Student Housing</h2>
+      <p>Are you a resident student?</p>
+      <button onclick="showApplicationForm(true)">Yes</button>
+      <button onclick="showApplicationForm(false)">No</button>
+
+      <div id="hostelApplication" style="display:none;">
+        <h3>Hostel Application Form</h3>
+        <form id="applicationForm">
+          <label for="roomPreference">Preferred Room Type:</label><br>
+          <select id="roomPreference" name="roomPreference">
+            <option value="single">Single Room</option>
+            <option value="double">Double Room</option>
+            <option value="shared">Shared Room</option>
+          </select><br><br>
+          <label for="specialRequests">Special Requests:</label><br>
+          <textarea id="specialRequests" name="specialRequests"></textarea><br><br>
+          <button type="submit">Submit Application</button>
+        </form>
+      </div>
+
+      <div id="nonResidentInfo" style="display:none;">
+        <p>Information for non-resident students will be displayed here.</p>
+      </div>
+    </section>
+
+    <section id="reporting" class="container">
+      <h2>Semester Reporting</h2>
+      <p>Log in below to access the new semester's portal and information.</p>
+      <form id="newSemesterLogin">
+        <label for="reportName">Name:</label><br>
+        <input type="text" id="reportName" name="reportName" required><br><br>
+        <label for="reportReg">Registration Number:</label><br>
+        <input type="password" id="reportReg" name="reportReg" required><br><br>
+        <button type="submit">Log In to New Semester</button>
+      </form>
+    </section>
+  </div>
+
+  <script>
+    // Basic in-page navigation for the sidebar links
+    document.querySelectorAll('.sidebar a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Placeholder JavaScript for form submissions
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('Login functionality will be implemented here.');
+      // In a real application, you would handle authentication.
+    });
+
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('Registration functionality will be implemented here. Details saved (not actually).');
+      // In a real scenario, you would store these details.
+    });
+
+    function showApplicationForm(isResident) {
+      const applicationDiv = document.getElementById('hostelApplication');
+      const nonResidentDiv = document.getElementById('nonResidentInfo');
+
+      if (isResident) {
+        applicationDiv.style.display = 'block';
+        nonResidentDiv.style.display = 'none';
+      } else {
+        applicationDiv.style.display = 'none';
+        nonResidentDiv.style.display = 'block';
+      }
+    }
+
+    document.getElementById('applicationForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('Hostel application submitted (not actually).');
+      // In a real application, you would send this data to a server.
+    });
+
+    document.getElementById('newSemesterLogin').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('Logging into the new semester (not actually).');
+      // In a real application, you would handle authentication for the new semester.
+    });
+  </script>
+</body>
+</html>
